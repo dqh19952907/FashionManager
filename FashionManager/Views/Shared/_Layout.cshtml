@@ -1,0 +1,714 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FashionManger</title>
+    <link rel="stylesheet" href="~/Content/site/css/bootstrap.css">
+    <link rel="stylesheet" href="~/Content/site/css/stylesheet.css">
+    <link rel="stylesheet" href="~/Content/site/css/jquery-ui-1.8.16.custom.css">
+    <link rel="stylesheet" href="~/Content/site/css/animation.css">
+    <link rel="stylesheet" href="~/Content/site/css/pavproducts.css">
+    <link rel="stylesheet" href="~/Content/site/css/colorbox.css">
+    <link rel="stylesheet" href="~/Content/site/css/style.css">
+    <link rel="stylesheet" href="~/Content/site/css/typo.css">
+    <link rel="stylesheet" href="~/Content/site/css/style1.css">
+    <link rel="stylesheet" href="~/Content/site/css/pavnewsletter.css">
+    <link rel="stylesheet" href="~/Content/site/css/pavproductcarousel.css">
+    <link rel="stylesheet" href="~/Content/site/css/font.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+
+</head>
+<body id="offcanvas-container" class="offcanvas-container layout-fullwidth fs14 page-home">
+    <section id="page" class="offcanvas-pusher" role="main">
+        <header id="header">
+            <div id="topbar">
+                <div class="container">
+                    <div class="show-desktop">
+                        <div class="quick-top-link">
+                            <!-- Single button -->
+                            <div class="language btn-top pull-left">
+                            </div>
+                            <div class="currency btn-top pull-left">
+                            </div>
+                            <div class="quick-access btn-group btn-top pull-left">
+                                <button type="button" class="form-control" data-toggle="dropdown">
+                                    <span class="quick-icon">
+                                        Tài khoản										<span class="fa fa-sort-asc"></span>
+                                    </span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <ul class="links">
+                                        <li class="first">
+                                            <a class="wishlist" href="">
+                                                <span class="fa fa-heart"></span>Yêu
+                                                thích (0)
+                                            </a>
+                                        </li>
+                                        <li><a class="account" href=""><span class="fa fa-user"></span>Tài khoản</a></li>
+                                        <li>
+                                            <a class="shoppingcart" href="">
+                                                <span class="fa fa-shopping-cart"></span>Giỏ
+                                                hàng
+                                            </a>
+                                        </li>
+                                        <li class="last">
+                                            <a class="last checkout" href="">
+                                                <span class="fa fa-file"></span>Thanh
+                                                toán
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="welcome pull-right hidden-sm hidden-xs">
+                                Xin chào! Bạn có thể <a href="">Đăng Nhập</a> hoặc <a href="">tạo Tài Khoản</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="show-mobile hidden-lg hidden-md">
+                        <div class="btn-top quick-user pull-left">
+                            <div class="form-control quickaccess-toggle">
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <div class="inner-toggle dropdown-menu">
+                                <div class="login links">
+                                    Xin chào! Bạn có thể <a href="">Đăng Nhập</a> hoặc <a href="">tạo Tài Khoản</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quick-cart btn-top pull-left">
+                            <div class="quickaccess-toggle form-control">
+                                <a href=""><i class="fa fa-shopping-cart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="header-main">
+                <div class="row">
+                    <div class="container">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 logo">
+                            <div id="logo-theme"><a href=""><span>Mazzola - Quần áo sơ mi nam Hàn Quốc</span></a></div>
+                        </div>
+                        <div class="hidden-xs hidden-sm inner pull-left">
+                            <div class="support">
+                                <div class="box-services">
+                                    <div class="box-services" style="font-size: 13px;">
+                                        <span class="pull-left">
+                                            <i class="fa fa-truck">&nbsp;</i>
+                                        </span>
+                                        <div class="media-body">
+                                            <h3>MIỄN PHÍ GIAO HÀNG</h3>
+                                            với ĐH trên 500k
+                                        </div>
+                                    </div>
+                                    <div class="box-services" style="font-size: 13px;">
+                                        <span class="pull-left">
+                                            <i class="fa fa-refresh">&nbsp;</i>
+                                        </span>
+                                        <div class="media-body">
+                                            <h3>ĐỔI &amp; TRẢ HÀNG</h3>
+                                            trong 2 ngày làm việc
+                                        </div>
+                                    </div>
+                                    <div class="box-services" style="font-size: 13px;">
+                                        <span class="pull-left">
+                                            <i class="fa fa-phone">&nbsp;</i>
+                                        </span>
+                                        <div class="media-body">
+                                            <h3>HOTLINE: 0937 996 063</h3>
+                                            bán hàng qua 24/7
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pull-right shopping-cart hidden-xs hidden-sm">
+                            <div class="cart-top">
+                                @{Html.RenderAction("GetShoppingCart", "ShoppingCart");}
+                            </div>
+                        </div>
+                        <div id="search">
+                            <div class="input-group">
+                                <input type="text" name="search" placeholder="Tìm kiếm" value=""
+                                       class="input-search form-control">
+                                <span class="input-group-btn">
+                                    <button class="button-search" type="button"><em class="fa fa-search"></em></button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="custom-menu">
+                <div id="pav-mainnav">
+                    <div class="container">
+                        <div class="pav-megamenu">
+                            <div class="navbar navbar-default">
+                                <div id="mainmenutop" class="megamenu" role="navigation">
+                                    <div class="navbar-header">
+                                        <a class="navbar-toggle hidden-lg hidden-md" href="javascript:;"
+                                           data-target=".navbar-collapse" data-toggle="collapse">
+                                            <span class="fa fa-bars"></span>
+                                        </a>
+                                        <div class="collapse navbar-collapse navbar-ex1-collapse hidden-sm hidden-xs">
+                                            <ul class="nav navbar-nav megamenu">
+                                                <li class="home first">
+                                                    <a href=""><span class="menu-title">Trang chủ</span></a>
+                                                </li>
+                                                <li class="parent dropdown ">
+                                                    <a class="dropdown-toggle" data-toggle="dropdown"
+                                                       href="">
+                                                        <span class="menu-title">Danh mục</span>
+                                                        <b class="caret"></b>
+                                                    </a>
+                                                    <div class="dropdown-menu level1">
+                                                        <div class="dropdown-menu-inner">
+                                                            <div class="row">
+                                                                <div class="col-sm-12 mega-col" data-colwidth="12"
+                                                                     data-type="menu">
+                                                                    <div class="mega-col-inner">
+                                                                        <ul>
+                                                                            <li class="first">
+                                                                                <a href="">
+                                                                                    <span class="menu-title">ÁO SƠ MI MAZZOLA</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class=" ">
+                                                                                <a href="">
+                                                                                    <span class="menu-title">ÁO SƠ MI TAY NGẮN</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class=" ">
+                                                                                <a href="">
+                                                                                    <span class="menu-title">ÁO SƠ MI TAY DÀI</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class=" ">
+                                                                                <a href="">
+                                                                                    <span class="menu-title">ÁO THUN POLO</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class=" ">
+                                                                                <a href="">
+                                                                                    <span class="menu-title">ÁO THUN TAY NGẮN</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class=" ">
+                                                                                <a href="">
+                                                                                    <span class="menu-title">ÁO THUN TAY DÀI</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class=" ">
+                                                                                <a href="">
+                                                                                    <span class="menu-title">ÁO KHOÁC</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class=" ">
+                                                                                <a href="">
+                                                                                    <span class="menu-title">VEST NAM</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class=" ">
+                                                                                <a href="">
+                                                                                    <span class="menu-title">QUẦN JEAN SKINNY</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class=" ">
+                                                                                <a href="">
+                                                                                    <span class="menu-title">QUẦN TÂY ÂU</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class=" ">
+                                                                                <a href="">
+                                                                                    <span class="menu-title">QUẦN KAKI - JOGGER</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class=" ">
+                                                                                <a href="">
+                                                                                    <span class="menu-title">QUẦN LỬNG</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class=" ">
+                                                                                <a href="">
+                                                                                    <span class="menu-title">DÂY NỊT - THẮT LƯNG NAM</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class="last">
+                                                                                <a href="">
+                                                                                    <span class="menu-title">GIÀY NAM</span>
+                                                                                </a>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class=" aligned-left parent dropdown ">
+                                                    <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <span class="menu-title">Khuyến mãi</span><b class="caret"></b>
+                                                    </a>
+                                                    <div class="dropdown-menu" style="width:1140px">
+                                                        <div class="dropdown-menu-inner">
+                                                            <div class="row">
+                                                                <div class="mega-col col-xs-12 col-sm-12 col-md-12 ">
+                                                                    <div class="mega-col-inner">
+                                                                        <div class="pavo-widget" id="pavowid-11">
+                                                                            <h3 class="menu-title">
+                                                                                <span class="menu-title">
+                                                                                    <em class="fa fa-caret-right"></em>Khuyến mãi
+                                                                                </span>
+                                                                            </h3>
+                                                                            <div class="widget-product-list">
+                                                                                <div class="widget-inner clearfix">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="pav-parrent aligned-left">
+                                                    <a href="">
+                                                        <span class="menu-title">Giới thiệu</span>
+                                                    </a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="">
+                                                        <span class="menu-title">Tuyển dụng</span>
+                                                    </a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="">
+                                                        <span class="menu-title">Hướng dẫn mua hàng</span>
+                                                    </a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="">
+                                                        <span class="menu-title">Hệ thống cửa hàng</span>
+                                                    </a>
+                                                </li>
+                                                <li class="last">
+                                                    <a href="">
+                                                        <span class="menu-title">CHÍNH SÁCH ĐỖI HÀNG</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box pav-custom  ">
+                            <div class="box-heading"><span>.</span></div>
+                            <div class="box-content">
+                                <div class="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section id="sys-notification">
+            <div class="container">
+                <div id="notification"></div>
+            </div>
+        </section>
+        <section id="pav-slideshow" class="pav-slideshow hidden-xs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3">
+                        <div id="pav-verticalmenu" class="box pav-verticalmenu highlighted hidden-xs hidden-sm">
+                            <div class="box-heading">
+                                <span class="fa fa-bars"></span>categories
+                                <span class="shapes round"><em class="shapes bottom"></em></span>
+                            </div>
+                            <div class="box-content">
+                                <div class="navbar navbar-default">
+                                    <div id="verticalmenu" class="verticalmenu" role="navigation">
+                                        <div class="navbar-header">
+                                            <a href="javascript:;" data-target=".navbar-collapse" data-toggle="collapse"
+                                               class="navbar-toggle">
+                                                <span class="icon-bar"></span>
+                                            </a>
+                                            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                                                <ul class="nav navbar-nav verticalmenu">
+                                                    <li class="home first">
+                                                        <a href="">
+                                                            <span class="menu-title">ÁO SƠ MI MAZZOLA</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="">
+                                                        <a href="">
+                                                            <span class="menu-title">ÁO SƠ MI TAY NGẮN</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="">
+                                                        <a href="">
+                                                            <span class="menu-title">ÁO SƠ MI TAY DÀI</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="">
+                                                        <a href="">
+                                                            <span class="menu-title">ÁO THUN POLO</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="">
+                                                        <a href="">
+                                                            <span class="menu-title">ÁO THUN TAY NGẮN</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="">
+                                                        <a href="">
+                                                            <span class="menu-title">ÁO THUN TAY DÀI</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="">
+                                                        <a href="">
+                                                            <span class="menu-title">ÁO KHOÁC</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="">
+                                                        <a href="">
+                                                            <span class="menu-title">VEST NAM</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="home">
+                                                        <a href="">
+                                                            <span class="menu-title">QUẦN JEAN SKINNY</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="">
+                                                        <a href="">
+                                                            <span class="menu-title">QUẦN TÂY ÂU</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="home">
+                                                        <a href="">
+                                                            <span class="menu-title">QUẦN KAKI - JOGGER</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="">
+                                                        <a href="">
+                                                            <span class="menu-title">QUẦN LỬNG</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="">
+                                                        <a href="">
+                                                            <span class="menu-title">DÂY NỊT - THẮT LƯNG NAM</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="last">
+                                                        <a href="">
+                                                            <span class="menu-title">GIÀY NAM</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9 col-md-9">
+                        <div class="layerslider-wrapper hidden-xs" style="max-width:873px;">
+                            <div class="bannercontainer banner-boxed" style="padding: 0px; margin: 0px; overflow: visible;">
+                                <div id="sliderlayer497980712"
+                                     class="rev_slider boxedbanner revslider-initialised tp-simpleresponsive"
+                                     style="width:100%;height:457px; ">
+
+                                    <ul style="display: block; overflow: hidden; width: 100%; height: 100%; max-height: none;">
+                                        <li data-masterspeed="300" data-transition="random" data-slotamount="7"
+                                            data-thumb="" class="first last"
+                                            style="width: 100%; height: 100%; overflow: hidden; visibility: visible; left: 0px; top: 0px; z-index: 20; opacity: 1;">
+
+                                            <div class="slotholder" style="width:100%;height:100%;"
+                                                 data-duration="undefined" data-zoomstart="undefined"
+                                                 data-zoomend="undefined" data-rotationstart="undefined"
+                                                 data-rotationend="undefined" data-ease="undefined"
+                                                 data-bgpositionend="undefined" data-bgposition="undefined"
+                                                 data-kenburns="undefined" data-easeme="undefined" data-bgfit="undefined"
+                                                 data-bgfitend="undefined" data-owidth="undefined" data-oheight="undefined">
+                                                <div class="tp-bgimg defaultimg" data-lazyload="undefined"
+                                                     data-bgfit="cover" data-bgposition="center center"
+                                                     data-bgrepeat="no-repeat" data-lazydone="undefined"
+                                                     data-src=""
+                                                     style="width: 100%; height: 100%; opacity: 1; background-image: url(&quot;http://mazzola.vn/image/data/banner/2.jpg&quot;); background-color: rgba(0, 0, 0, 0); background-size: cover; background-position: center center; background-repeat: no-repeat;"></div>
+                                            </div>
+
+                                        </li>
+
+                                    </ul>
+                                    <div class="tp-loader" style="display: none;"></div>
+                                    <div class="tp-bannertimer" style="visibility: hidden; width: 0%;"></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!--
+                        ##############################
+                         - ACTIVATE THE BANNER HERE -
+                        ##############################
+                        -->
+                        <script type="text/javascript">
+
+                            var tpj = jQuery;
+
+
+                            if (tpj.fn.cssOriginal != undefined)
+                                tpj.fn.css = tpj.fn.cssOriginal;
+
+                            tpj('#sliderlayer497980712').revolution(
+                                    {
+                                        delay: 9000,
+                                        startheight: 457,
+                                        startwidth: 873,
+
+
+                                        hideThumbs: 0,
+
+                                        thumbWidth: 100,
+                                        thumbHeight: 50,
+                                        thumbAmount: 5,
+
+                                        navigationType: "bullet",
+                                        navigationArrows: "verticalcentered",
+                                        navigationStyle: "round",
+
+                                        navOffsetHorizontal: 0,
+                                        navOffsetVertical: 20,
+
+                                        touchenabled: "on",
+                                        onHoverStop: "on",
+                                        shuffle: "off",
+                                        stopAtSlide: -1,
+                                        stopAfterLoops: -1,
+
+                                        hideCaptionAtLimit: 0,
+                                        hideAllCaptionAtLilmit: 0,
+                                        hideSliderAtLimit: 0,
+                                        fullWidth: "off",
+                                        shadow: 0
+                                    });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </section>
+        @RenderBody()
+        <footer id="footer">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="custom">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="box">
+                                    <div class="box-heading"><span style="color:#ff6633;">Giới thiệu</span></div>
+                                    <p><img alt="" src="~/Content/site/image/logo_footer.png" style="width: 166px; height: 35px;"> &nbsp;</p>
+                                    <div class="box-content">
+                                        <div class="">
+                                            <iframe allowfullscreen="" frameborder="0" height="169" src="//www.youtube.com/embed/RxD7t7mKRxs" width="280"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="box">
+                                    <div class="box-heading"><span style="color:#ff6633;">Facebook</span></div>
+                                    <div class="box-content">
+                                        <div class="">
+                                            <script>
+                                                (function (d, s, id) {
+                                                    var js, fjs = d.getElementsByTagName(s)[0];
+                                                    if (d.getElementById(id)) return;
+                                                    js = d.createElement(s); js.id = id;
+                                                    js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=235560256543862&version=v2.0";
+                                                    fjs.parentNode.insertBefore(js, fjs);
+                                                }(document, 'script', 'facebook-jssdk'));
+                                            </script>
+                                            <div class="fb-like-box fb_iframe_widget" data-colorscheme="dark" data-header="true" data-href="https://www.facebook.com/mazzola.vn/" data-show-border="false" data-show-faces="true" data-stream="false" data-width="280" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=235560256543862&amp;color_scheme=dark&amp;container_width=279&amp;header=true&amp;href=https%3A%2F%2Fwww.facebook.com%2Fmazzola.vn%2F&amp;locale=vi_VN&amp;sdk=joey&amp;show_border=false&amp;show_faces=true&amp;stream=false&amp;width=280"><span style="vertical-align: bottom; width: 280px; height: 214px;"><iframe name="f32412f8c973a38" width="280px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like_box Facebook Social Plugin" src="https://www.facebook.com/v2.0/plugins/like_box.php?app_id=235560256543862&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FP5DLcu0KGJB.js%3Fversion%3D42%23cb%3Df158a5080a4e97c%26domain%3Dmazzola.vn%26origin%3Dhttp%253A%252F%252Fmazzola.vn%252Ff153869916ebea%26relation%3Dparent.parent&amp;color_scheme=dark&amp;container_width=279&amp;header=true&amp;href=https%3A%2F%2Fwww.facebook.com%2Fmazzola.vn%2F&amp;locale=vi_VN&amp;sdk=joey&amp;show_border=false&amp;show_faces=true&amp;stream=false&amp;width=280" style="border: none; visibility: visible; width: 280px; height: 214px;" class=""></iframe></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="box">
+                                    <div class="box-heading"><span style="color:#ff6633;">CN Quận 3</span></div>
+                                    <div class="box-content">
+                                        <div class="">
+                                            <ul class="social">
+                                                <li class="first">
+                                                    <a href="#"><span class="fa fa-map-marker">&nbsp;</span>99 Trương Định, Phường 6 , Quận 3, TP HCM</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"><span class="fa fa-mobile-phone">&nbsp;</span>ĐT: 0908 093 954</a>
+                                                </li>
+                                                <li class="last">
+                                                    <span class="fa fa-envelope">&nbsp;</span><a href="ymsgr:sendIM?shopmazzola4">Shopmazzola1</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="box">
+                                    <div class="box-heading"><span style="color:#ff6633;">CN Quận Tân Bình</span></div>
+                                    <div class="box-content">
+                                        <div class="">
+                                            <ul class="social">
+                                                <li class="first"><a href="#"><span class="fa fa-map-marker">&nbsp;</span> 96 Bắc Hải , P.6 , Q.Tân Bình, TP HCM</a></li>
+                                                <li><a href="#"><span class="fa fa-mobile-phone">&nbsp;</span>ĐT: 0938 353 474</a></li>
+                                                <li class="last"><span class="fa fa-envelope">&nbsp;</span><a href="ymsgr:sendIM?shopmazzola1">Shopmazzola1</a> </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-center">
+                <div class="container">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="box">
+                            <div class="box-heading"><span style="color:#ff6633;">CN Quận Phú Nhuận</span></div>
+                            <div class="box-content">
+                                <div class="">
+                                    <ul class="social">
+                                        <li class="first"><a href="#"><span class="fa fa-map-marker">&nbsp;</span>152 Lê Văn Sỹ, P.10, Q.Phú Nhuận, TP HCM</a></li>
+                                        <li><a href="#"><span class="fa fa-mobile-phone">&nbsp;</span>ĐT: 0936 559 733</a></li>
+                                        <li class="last"><span class="fa fa-envelope">&nbsp;</span><a href="ymsgr:sendIM?shopmazzola1"> Shopmazzola1</a> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="box">
+                            <div class="box-heading"><span style="color:#ff6633;">CN Quận Tân Phú</span></div>
+                            <div class="box-content">
+                                <div class="">
+                                    <ul class="social">
+                                        <li class="first"><a href="#"><span class="fa fa-map-marker">&nbsp;</span>301 Âu Cơ, P.Phú Trung, Q.Tân Phú, TP HCM</a></li>
+                                        <li><a href="#"><span class="fa fa-mobile-phone">&nbsp;</span>ĐT: 0937 225 443</a></li>
+                                        <li class="last"><span class="fa fa-envelope">&nbsp;</span> <a href="ymsgr:sendIM?shopmazzola2"> Shopmazzola2</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="box">
+                            <div class="box-heading"><span style="color:#ff6633;">CN Quận Gò Vấp</span></div>
+                            <div class="box-content">
+                                <div class="">
+                                    <ul class="social">
+                                        <li class="first"><a href="#"><span class="fa fa-map-marker">&nbsp;</span>56 Nguyễn Oanh, P.7, Q.Gò Vấp, TP HCM</a></li>
+                                        <li><a href="#"><span class="fa fa-mobile-phone">&nbsp;</span>ĐT: 0933 366 474</a></li>
+                                        <li class="last"><span class="fa fa-envelope">&nbsp;</span> <a href="ymsgr:sendIM?shopmazzola3"> Shopmazzola3</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--
+
+            OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
+
+            Please donate via PayPal to donate@opencart.com
+
+            //-->
+            <div id="powered">
+                <div class="container">
+                    <div id="top"><a class="scrollup" href="#" style="display: inline;"><i class="fa fa-angle-up"></i>Top</a></div>
+                    <div class="copyright pull-left">
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script type="text/javascript" src="~/Content/site/js/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="~/Content/site/js/jquery-ui-1.8.16.custom.min.js"></script>
+        <script type="text/javascript" src="~/Content/site/js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="~/Content/site/js/common.js"></script>
+        <script type="text/javascript" src="~/Content/site/js/common1.js"></script>
+        <script type="text/javascript" src="~/Content/site/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="~/Content/site/js/jquery.colorbox-min.js"></script>
+        <script type="text/javascript" src="~/Content/site/js/jquery.themepunch.plugins.min.js"></script>
+        <script type="text/javascript" src="~/Content/site/js/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="~/Content/site/js/buttons.js"></script>
+        @RenderSection("Scripts", required: false)
+
+        <script>
+            $(document).ready(function () {
+
+                $("li:first-child").addClass('first');
+
+                $("li:last-child").addClass('last');
+
+                $(".box-product .row:last-child").addClass('last');
+
+                $("#image-additional a:last-child").addClass('last');
+
+                $(".product-items:last-child").addClass('last');
+
+                $('.product-cols:last-child').addClass('last');
+
+                $(".product-cols:first-child").addClass('first');
+
+                $(".product-grid div[class^='col-']:last-child").addClass('last');
+
+                $(".product-grid .row:last-child").addClass('last');
+
+                $(function () {
+
+                    $('#header .links li').last().addClass('last');
+
+                    $('.breadcrumb a').last().addClass('last');
+
+                    $('.cart tr').eq(0).addClass('first');
+
+                });
+
+            });
+
+        </script>
+        <script>
+
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+
+
+            ga('create', 'UA-30003192-2', 'auto');
+
+            ga('send', 'pageview');
+
+
+
+        </script>
+    </section>
+</body>
+</html>

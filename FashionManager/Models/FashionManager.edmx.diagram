@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8bce3f134e4e4e768c6ee63ebceb2949" Name="Diagram1">
+        <EntityTypeShape EntityType="FashionMangerModel.AdminRole" Width="1.5" PointX="8" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashionMangerModel.Admins" Width="1.5" PointX="5.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashionMangerModel.Category" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashionMangerModel.Color" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashionMangerModel.Comment" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashionMangerModel.Contact" Width="1.5" PointX="7.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashionMangerModel.ContentStatic" Width="1.5" PointX="7.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashionMangerModel.Info" Width="1.5" PointX="9.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashionMangerModel.Menu" Width="1.5" PointX="9.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashionMangerModel.Order" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashionMangerModel.Product" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashionMangerModel.Role" Width="1.5" PointX="5.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashionMangerModel.Size" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashionMangerModel.Slide" Width="1.5" PointX="10.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashionMangerModel.Support" Width="1.5" PointX="7.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashionMangerModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashionMangerModel.Transaction" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashionMangerModel.User" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashionMangerModel.Video" Width="1.5" PointX="11.75" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="FashionMangerModel.FK_AdminRole_Admins" ManuallyRouted="false" />
+        <AssociationConnector Association="FashionMangerModel.FK_AdminRole_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="FashionMangerModel.FK_Product_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="FashionMangerModel.FK_Product_Color" ManuallyRouted="false" />
+        <AssociationConnector Association="FashionMangerModel.FK_Comment_User" ManuallyRouted="false" />
+        <AssociationConnector Association="FashionMangerModel.FK_Order_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="FashionMangerModel.FK_Order_Transaction" ManuallyRouted="false" />
+        <AssociationConnector Association="FashionMangerModel.FK_Product_Size" ManuallyRouted="false" />
+        <AssociationConnector Association="FashionMangerModel.FK_Transaction_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
