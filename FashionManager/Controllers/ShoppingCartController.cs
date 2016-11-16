@@ -51,7 +51,7 @@ namespace FashionManager.Controllers
         //        SC.Quantity++;
         //    }
         //    return Json(new { cart = SC });
-        //}
+        //zxc}
         private int ItemAmount()
         {
             int ItemAmount = 0;
