@@ -78,7 +78,7 @@ namespace FashionManager.Controllers
         //    ViewBag.Total = Total();
         //    List<ShoppingCart> listCartItem = (List<ShoppingCart>)Session["ShoppingCart"];
         //    return PartialView(listCartItem);
-        //}
+        ///asd}
         [HttpPost]
         public JsonResult AddToCart(int iProductID)
         {
