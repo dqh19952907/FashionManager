@@ -29,23 +29,8 @@
                     </table>
                 </div>
                 <div class="checkout">
-                    <a href="" class="button btn btn-theme-default">Xem giỏ hàng</a>
-                    <a href="" class="button btn btn-theme-default">Thanh toán</a>
+                    <a href="@Url.Action("ListCartItem","ShoppingCart")" class="button btn btn-theme-default" >Xem giỏ hàng</a>
+                    <a href="@Url.Action("Order","ShoppingCart")" class="button btn btn-theme-default">Thanh toán</a>
                 </div>
             </div>
         </div>
-@*else
-    {
-        <div id="cart" class="clearfix">
-            <div class="heading media">
-                <div class="cart-inner media-body">
-                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                    <h4>Giỏ Hàng</h4>
-                    <a><span id="cart-total">0 sản phẩm - 0 vnđ</span></a>
-                </div>
-            </div>
-            <div class="content">
-                <div class="empty">Giỏ hàng đang trống!</div>
-            </div>
-        </div>
-    }*@

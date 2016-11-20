@@ -1,13 +1,198 @@
 ﻿@model IEnumerable<FashionManager.Models.Product>
-
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
 @{
     ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<section id="sys-notification">
+    <div class="container">
+        <div id="notification"></div>
+    </div>
+</section>
+<section id="pav-slideshow" class="pav-slideshow hidden-xs">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3">
+                <div id="pav-verticalmenu" class="box pav-verticalmenu highlighted hidden-xs hidden-sm">
+                    <div class="box-heading">
+                        <span class="fa fa-bars"></span>categories
+                        <span class="shapes round"><em class="shapes bottom"></em></span>
+                    </div>
+                    <div class="box-content">
+                        <div class="navbar navbar-default">
+                            <div id="verticalmenu" class="verticalmenu" role="navigation">
+                                <div class="navbar-header">
+                                    <a href="javascript:;" data-target=".navbar-collapse" data-toggle="collapse"
+                                       class="navbar-toggle">
+                                        <span class="icon-bar"></span>
+                                    </a>
+                                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                                        <ul class="nav navbar-nav verticalmenu">
+                                            <li class="home first">
+                                                <a href="">
+                                                    <span class="menu-title">ÁO SƠ MI MAZZOLA</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="">
+                                                    <span class="menu-title">ÁO SƠ MI TAY NGẮN</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="">
+                                                    <span class="menu-title">ÁO SƠ MI TAY DÀI</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="">
+                                                    <span class="menu-title">ÁO THUN POLO</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="">
+                                                    <span class="menu-title">ÁO THUN TAY NGẮN</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="">
+                                                    <span class="menu-title">ÁO THUN TAY DÀI</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="">
+                                                    <span class="menu-title">ÁO KHOÁC</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="">
+                                                    <span class="menu-title">VEST NAM</span>
+                                                </a>
+                                            </li>
+                                            <li class="home">
+                                                <a href="">
+                                                    <span class="menu-title">QUẦN JEAN SKINNY</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="">
+                                                    <span class="menu-title">QUẦN TÂY ÂU</span>
+                                                </a>
+                                            </li>
+                                            <li class="home">
+                                                <a href="">
+                                                    <span class="menu-title">QUẦN KAKI - JOGGER</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="">
+                                                    <span class="menu-title">QUẦN LỬNG</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="">
+                                                    <span class="menu-title">DÂY NỊT - THẮT LƯNG NAM</span>
+                                                </a>
+                                            </li>
+                                            <li class="last">
+                                                <a href="">
+                                                    <span class="menu-title">GIÀY NAM</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-9 col-md-9">
+                <div class="layerslider-wrapper hidden-xs" style="max-width:873px;">
+                    <div class="bannercontainer banner-boxed" style="padding: 0px; margin: 0px; overflow: visible;">
+                        <div id="sliderlayer497980712"
+                             class="rev_slider boxedbanner revslider-initialised tp-simpleresponsive"
+                             style="width:100%;height:457px; ">
+
+                            <ul style="display: block; overflow: hidden; width: 100%; height: 100%; max-height: none;">
+                                <li data-masterspeed="300" data-transition="random" data-slotamount="7"
+                                    data-thumb="" class="first last"
+                                    style="width: 100%; height: 100%; overflow: hidden; visibility: visible; left: 0px; top: 0px; z-index: 20; opacity: 1;">
+
+                                    <div class="slotholder" style="width:100%;height:100%;"
+                                         data-duration="undefined" data-zoomstart="undefined"
+                                         data-zoomend="undefined" data-rotationstart="undefined"
+                                         data-rotationend="undefined" data-ease="undefined"
+                                         data-bgpositionend="undefined" data-bgposition="undefined"
+                                         data-kenburns="undefined" data-easeme="undefined" data-bgfit="undefined"
+                                         data-bgfitend="undefined" data-owidth="undefined" data-oheight="undefined">
+                                        <div class="tp-bgimg defaultimg" data-lazyload="undefined"
+                                             data-bgfit="cover" data-bgposition="center center"
+                                             data-bgrepeat="no-repeat" data-lazydone="undefined"
+                                             data-src=""
+                                             style="width: 100%; height: 100%; opacity: 1; background-image: url(&quot;http://mazzola.vn/image/data/banner/2.jpg&quot;); background-color: rgba(0, 0, 0, 0); background-size: cover; background-position: center center; background-repeat: no-repeat;"></div>
+                                    </div>
+
+                                </li>
+
+                            </ul>
+                            <div class="tp-loader" style="display: none;"></div>
+                            <div class="tp-bannertimer" style="visibility: hidden; width: 0%;"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--
+                ##############################
+                 - ACTIVATE THE BANNER HERE -
+                ##############################
+                -->
+                <script type="text/javascript">
+
+                    var tpj = jQuery;
+
+
+                    if (tpj.fn.cssOriginal != undefined)
+                        tpj.fn.css = tpj.fn.cssOriginal;
+
+                    tpj('#sliderlayer497980712').revolution(
+                            {
+                                delay: 9000,
+                                startheight: 457,
+                                startwidth: 873,
+
+
+                                hideThumbs: 0,
+
+                                thumbWidth: 100,
+                                thumbHeight: 50,
+                                thumbAmount: 5,
+
+                                navigationType: "bullet",
+                                navigationArrows: "verticalcentered",
+                                navigationStyle: "round",
+
+                                navOffsetHorizontal: 0,
+                                navOffsetVertical: 20,
+
+                                touchenabled: "on",
+                                onHoverStop: "on",
+                                shuffle: "off",
+                                stopAtSlide: -1,
+                                stopAfterLoops: -1,
+
+                                hideCaptionAtLimit: 0,
+                                hideAllCaptionAtLilmit: 0,
+                                hideSliderAtLimit: 0,
+                                fullWidth: "off",
+                                shadow: 0
+                            });
+                </script>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="pav-showcase" id="pavo-showcase">
     <div class="container">
         <div class="row">
@@ -150,8 +335,7 @@
                     console.log(data);
                     //$("#cart-total").html(data.itemAmount + " &nbsp; Sản Phẩm &nbsp; - &nbsp;" + data.total);
                     var html = "";
-                   // $.each(data.value, 
-                    function(i, item){
+                    $.each(data.value,function(i, item){
                         html += '<tr>';
                         html += '<td class="image">'+ item.ImageLink + '</td>';
                        
@@ -164,9 +348,10 @@
                         html += '</div>';
                         html += '</td>';
                         html += '</tr>'; 
+                        i++;
                         
-                    };//)
-                    
+                    });
+                    $(".mini-cart-info").append(html)
                         
                     }
             });

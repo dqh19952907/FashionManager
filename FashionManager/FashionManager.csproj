@@ -163,6 +163,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\UserAccountController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -392,8 +393,10 @@
     <Content Include="Content\site\image\C87.jpg" />
     <Content Include="Content\site\image\logo.png" />
     <Content Include="Content\site\image\logo_footer.png" />
+    <Content Include="Content\site\image\remove.png" />
     <Content Include="Content\site\image\stars-0.png" />
     <Content Include="Content\site\image\stars-4.png" />
+    <Content Include="Content\site\image\update.png" />
     <Content Include="Content\site\js\bootstrap.min.js" />
     <Content Include="Content\site\js\buttons.js" />
     <Content Include="Content\site\js\common.js" />
@@ -472,9 +475,13 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\ShoppingCart\ShoppingCartPartial.cshtml" />
+    <Content Include="Views\ShoppingCart\ListCartItem.cshtml" />
+    <Content Include="Views\ShoppingCart\Order.cshtml" />
+    <Content Include="Views\ShoppingCart\ConfirmOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\UserAccount\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

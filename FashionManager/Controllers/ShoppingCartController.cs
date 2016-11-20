@@ -11,74 +11,6 @@ namespace FashionManager.Controllers
         //
         // GET: /ShoppingCart/
         FashionMangerEntities db = new FashionMangerEntities();
-        //public List<ShoppingCart> GetShoppingCart()
-        //{
-        //    List<ShoppingCart> listCartItem = Session["ShoppingCart"] as List<ShoppingCart>;
-        //    if (listCartItem == null)
-        //    {
-        //        listCartItem = new List<ShoppingCart>();
-        //        Session["ShoppingCart"] = listCartItem;
-        //    }
-        //    return listCartItem;
-        //}
-        //public ActionResult ShoppingCart()
-        //{
-        //    if (Session["ShoppingCart"] == null)
-        //    {
-        //        return RedirectToAction("Index", "Home");
-        //    }
-        //    List<ShoppingCart> listCartItem = GetShoppingCart();
-        //    return View(listCartItem);
-        //}
-        //[HttpPost]
-        //public JsonResult AddToCart(int iProductID)
-        //{
-        //    Product prd = db.Product.SingleOrDefault(n => n.ProductID == iProductID);
-        //    if (prd == null)
-        //    {
-        //        Response.StatusCode = 404;
-        //        return null;
-        //    }
-        //    List<ShoppingCart> listCartItem = GetShoppingCart();
-        //    ShoppingCart SC = listCartItem.Find(n => n.ProductID == iProductID);
-        //    if (SC == null)
-        //    {
-        //        SC = new ShoppingCart(iProductID);
-        //        listCartItem.Add(SC);
-        //    }
-        //    else
-        //    {
-        //        SC.Quantity++;
-        //    }
-        //    return Json(new { cart = SC });
-        //zxc}
-        private int ItemAmount()
-        {
-            int ItemAmount = 0;
-            List<ShoppingCart> listCartItem = Session["ShoppingCart"] as List<ShoppingCart>;
-            if (listCartItem != null)
-            {
-                ItemAmount = listCartItem.Sum(n => n.Quantity);
-            }
-            return ItemAmount;
-        }
-        private double Total()
-        {
-            double Total = 0;
-            List<ShoppingCart> listCartItem = Session["ShoppingCart"] as List<ShoppingCart>;
-            if (listCartItem != null)
-            {
-                Total = listCartItem.Sum(n => n.Amount);
-            }
-            return Total;
-        }
-        //public ActionResult ShoppingCartPartial()
-        //{
-        //    ViewBag.ItemAmount = ItemAmount();
-        //    ViewBag.Total = Total();
-        //    List<ShoppingCart> listCartItem = (List<ShoppingCart>)Session["ShoppingCart"];
-        //    return PartialView(listCartItem);
-        ///asdd}
         [HttpPost]
         public JsonResult AddToCart(int iProductID)
         {
@@ -108,32 +40,6 @@ namespace FashionManager.Controllers
                     Session["ShoppingCart"] = listCartItem;
                 }
             }
-
-            int ProductID = 0;
-            string Name = "";
-            string ImageLink = "";
-            int Quantity = 0;
-            double Price1 = 0;
-            double Amount = 0;
-            int ItemAmount = 0;
-            double Total = 0;
-            
-
-            if (Session["ShoppingCart"] != null)
-            {
-                List<ShoppingCart> ls = (List<ShoppingCart>)Session["ShoppingCart"];
-                foreach (ShoppingCart item in ls)
-                {
-                    ProductID = item.ProductID;
-                    Name = item.Name;
-                    ImageLink = item.ImageLink;
-                    Quantity = item.Quantity;
-                    Price1 = item.Price1;
-                    Amount = item.Amount;
-                    ItemAmount += item.Quantity;
-                    Total += Amount;
-                }
-            }
             return Json(new {value = listCartItem});
         }
         public ActionResult GetShoppingCart()
@@ -146,5 +52,87 @@ namespace FashionManager.Controllers
         {
             return View();
         }
+        public ActionResult UpdateShoppingCart(int iProductID, FormCollection f)
+        {
+            List<ShoppingCart> listCartItem;
+            if (Session["ShoppingCart"] == null)
+            {
+                listCartItem = new List<ShoppingCart>();
+                listCartItem.Add(new ShoppingCart(iProductID));
+                Session["ShoppingCart"] = listCartItem;
+            }
+            else
+            {
+                listCartItem = (List<ShoppingCart>)Session["ShoppingCart"];
+                ShoppingCart SC = listCartItem.SingleOrDefault(n => n.ProductID == iProductID);
+                if (SC != null)
+                {
+                    SC.Quantity = int.Parse(f["quantity"].ToString());
+                }
+            }
+            return RedirectToAction("ListCartItem");
+        }
+        public ActionResult DeleteShoppingCart(int iProductID)
+        {
+            List<ShoppingCart> listCartItem;
+            if (Session["ShoppingCart"] == null)
+            {
+                listCartItem = new List<ShoppingCart>();
+                listCartItem.Add(new ShoppingCart(iProductID));
+                Session["ShoppingCart"] = listCartItem;
+            }
+            else
+            {
+                listCartItem = (List<ShoppingCart>)Session["ShoppingCart"];
+                ShoppingCart SC = listCartItem.SingleOrDefault(n => n.ProductID == iProductID);
+                if (SC != null)
+                {
+                    listCartItem.RemoveAll(n => n.ProductID == iProductID);
+                    return RedirectToAction("ListCartItem");
+                }
+            }
+            return RedirectToAction("ListCartItem");
+        }
+        [HttpGet]
+        public ActionResult Order()
+        {
+            List<ShoppingCart> listCartItem = (List<ShoppingCart>)Session["ShoppingCart"];
+            if (listCartItem == null||listCartItem.Count == 0 )
+            {
+                return RedirectToAction("Index","Home");
+            }
+            return View();
+        }
+        [HttpPost ,ActionName("Order")]
+        public ActionResult Order(FormCollection f)
+        {
+            
+            Transaction Trans = new Transaction();
+            User us = (User)Session["Account"];
+            List<ShoppingCart> SC = (List<ShoppingCart>)Session["ShoppingCart"];
+            Trans.IDUser = us.UserID;
+            Trans.UserName = us.UserName;
+            Trans.UserEmail = us.Email;
+            Trans.UserPhone = us.Phone;
+            Trans.Created = DateTime.Now;
+            db.Transaction.Add(Trans);
+            db.SaveChanges();
+            foreach (var item in SC)
+            {
+                Order ord = new Order();
+                ord.IDTransaction = Trans.TransactionID;
+                ord.IDProduct = item.ProductID;
+                ord.Qty= item.Quantity;
+                ord.Amount = (decimal)item.Amount;
+                db.Order.Add(ord);
+            }
+            db.SaveChanges();
+            Session["ShoppingCart"] = null;
+            return RedirectToAction("ConfirmOrder", "ShoppingCart");
+        }
+        public ActionResult ConfirmOrder()
+        {
+            return View();
+        } 
     }
 }
